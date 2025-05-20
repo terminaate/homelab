@@ -18,9 +18,9 @@ services:
     container_name: jackett
     network_mode: host
     environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Etc/UTC
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     volumes:
       - ./jackett:/config
       - ./downloads:/downloads
