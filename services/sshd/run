@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/sh
+exec sshd -D -e 2>&1
+su -c "/system/bin/iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 8022"
