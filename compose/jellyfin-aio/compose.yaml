@@ -1,18 +1,4 @@
 services:
-  prowlarr:
-    image: lscr.io/linuxserver/prowlarr:latest
-    container_name: prowlarr
-    network_mode: host
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ./prowlarr/config:/config
-    ports:
-      - 9696:9696
-    restart: unless-stopped
-
   jackett:
     image: lscr.io/linuxserver/jackett:latest
     container_name: jackett
