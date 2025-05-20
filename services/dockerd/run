@@ -1,0 +1,30 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+# It will get your current getway ip
+getway=$(ip route get 8.8.8.8 | grep -oP '(?<=via )[^ ]*')
+
+#it will add your getway ip to your iptable rules in android
+
+sudo ip route add default via $getway dev wlan0
+sudo ip rule add from all lookup main pref 30000
+sudo ip rule add pref 1 from all lookup main
+sudo ip rule add pref 2 from all lookup default
+
+sudo mount -t tmpfs -o uid=0,gid=0,mode=0755 cgroup /sys/fs/cgroup
+cd /sys/fs/cgroup/
+sudo mkdir -p cpu cpu acct blkio memory devices pids
+sudo mount -n -t cgroup -o cpu cgroup cpu
+
+sudo mount -o remount,rw /
+sudo mount -t tmpfs -o mode=755 tmpfs /sys/fs/cgroup
+sudo mkdir -p /sys/fs/cgroup/devices
+sudo mount -t cgroup -o devices cgroup /sys/fs/cgroup/devices
+
+DIRECTORY=/var/run/
+if [ ! -d "$DIRECTORY" ]; then
+  mkdir -p /var/run/
+fi
+
+sudo mount --bind $PREFIX/var/run/docker /var/run/
+
+sudo dockerd
