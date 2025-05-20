@@ -1,0 +1,25 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:testing
+    container_name: vaultwarden-server
+    environment:
+      - WEBSOCKET_ENABLED=true
+      - ROCKET_PORT=9021
+      - SIGNUPS_ALLOWED=false
+    volumes:
+      - ./data:/data  # Adjust the path to your data
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    container_name: vaultwarden-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Nginx configuration (adjust path)
+      - ./certs/cert.crt:/etc/nginx/ssl/cert.crt  # Self-signed SSL certificate
+      - ./certs/cert.key:/etc/nginx/ssl/cert.key  # SSL key
+    ports:
+      - "8086:8086"
+      - "8443:8443"
+    depends_on:
+      - vaultwarden  # Make sure Vaultwarden starts first
+    restart: unless-stopped

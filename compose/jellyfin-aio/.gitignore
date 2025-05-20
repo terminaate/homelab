@@ -1,0 +1,11 @@
+.DS_Store
+downloads/
+movies/
+tvshows/
+prowlarr/
+qbittorrent/
+sonarr/
+radarr/
+jellyseerr/
+jellyfin/
+swag/

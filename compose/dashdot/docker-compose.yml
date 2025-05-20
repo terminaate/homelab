@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  dash:
+    image: mauricenino/dashdot:latest
+    restart: unless-stopped
+    container_name: dashdot
+    privileged: true
+    network_mode: host
+    ports:
+      - '3001:3001'
+    volumes:
+      - /:/mnt/host:ro
