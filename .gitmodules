@@ -1,0 +1,3 @@
+[submodule "compose/jellyfin-aio/jackett-sync"]
+	path = compose/jellyfin-aio/jackett-sync
+	url = https://github.com/terminaate/jackett-sync-ts
