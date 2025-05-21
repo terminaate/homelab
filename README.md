@@ -9,14 +9,18 @@ This repo contains Docker Compose files and scripts for my self-hosted services,
 
 ```
 ├── compose
-│   ├── beszel
-│   ├── dashdot
-│   ├── homarr
-│   ├── jellyfin-aio
-│   ├── metube
-│   ├── npm
-│   ├── portainer
-│   └── vaultwarden
-└── scripts
-    └── check-docker-support.sh
+│   ├── beszel
+│   ├── dashdot
+│   ├── homarr
+│   ├── jellyfin-aio
+│   ├── metube
+│   ├── npm
+│   ├── portainer
+│   └── vaultwarden
+├── dotfiles
+├── scripts
+└── services
+    ├── code-server
+    ├── dockerd
+    └── sshd
 ```
