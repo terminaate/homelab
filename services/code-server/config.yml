@@ -1,4 +1,5 @@
 bind-addr: 0.0.0.0:8555
 auth: none
-cert: false
+cert: true
+cert-key: ./certs/cert.key
 disable-telemetry: true
