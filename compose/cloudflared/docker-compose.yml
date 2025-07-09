@@ -5,7 +5,7 @@ services:
     environment:
       - TZ=${TZ}
       - TUNNEL_TOKEN=${TOKEN}
-    restart: unless-stopped
+    restart: on-failure
     command: tunnel --no-autoupdate run
     network_mode: host
     user: root
