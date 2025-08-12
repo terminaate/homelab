@@ -108,3 +108,4 @@ alias reboot="sudo reboot"
 alias docker-compose="sudo DOCKER_HOST=unix:///data/data/com.termux/files/usr/var/run/docker.sock docker compose"
 alias battery='termux-battery-status'
 alias code='code-server'
+alias dive='~/go/bin/dive'
