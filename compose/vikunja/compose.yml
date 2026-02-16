@@ -1,0 +1,13 @@
+services:
+  vikunja:
+    image: vikunja/vikunja
+    network_mode: host
+    container_name: vikunja
+    user: 0:0
+    ports:
+      - "3456:3456"
+    volumes:
+      - ./files:/app/vikunja/files
+      - ./db:/db
+    env_file: .env
+    restart: unless-stopped
