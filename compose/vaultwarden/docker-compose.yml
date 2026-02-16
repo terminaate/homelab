@@ -1,6 +1,6 @@
 services:
   vaultwarden:
-    image: vaultwarden/server:testing
+    image: vaultwarden/server:latest
     container_name: vaultwarden-server
     environment:
       - WEBSOCKET_ENABLED=true
